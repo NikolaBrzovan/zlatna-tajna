@@ -6,8 +6,9 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="css/style.min.css"/>
         <meta name="keywords" content="Zlatna tajna,Med,Pcele,Kosnica,Propolis"/>
         <meta name="description" content=""/>
         <meta name="author" content="Nikola Brzovan"/>
@@ -34,25 +35,29 @@
              </div>
          </div>
          <div id="vrste">
-             <div class="med"></div>
+             <div class="med"><img src="img/Bagremov.png" alt="SlikaMed"/></div>
              <div class="kontakt"></div>
-             <div class="med"></div>
+             <div class="med"><img src="img/Livadski.png" alt="SlikaMEd"></div>
          </div>
          <div id="socForm">
             <div class="panelManji"></div>
             <div class="panelVeci">
                 <form action="#" method="GET">
-                   <input type="text" id="ime" placeholder="IME"/><span >Niste uneli IME</span><br/>
-                   <input type="text" id="prezime" placeholder="PREZIME"/><span >Niste uneli PREZIME</span><br/>
-                   <input type="text" id="adresa" placeholder="ADRESA"/><span >Niste uneli ADRESU</span><br/>
+                   <input type="text" id="ime" placeholder="IME"/><span>Niste uneli IME</span><br/>
+                   <input type="text" id="prezime" placeholder="PREZIME"/><span>Niste uneli PREZIME</span><br/>
+                   <input type="text" id="adresa" placeholder="ADRESA"/><span>Niste uneli ADRESU</span><br/>
                    <input type="radio" name="odabir" class="rb" value="Bagremov"/>Bagremov med <input type="radio" name="odabir" class="rb" value="Bagremov"/>Livadski med  <span> Niste odabrali proizvod</span></br>
-                   <textarea name="kol" id="kolicina" placeholder="UNESITE KOLICINU"></textarea><span >Niste uneli kilograme</span><br/>
-                   <input type="button" class="btn" value="NARUCI" id="naruci"/>
+                   <textarea name="kol" id="kolicina" placeholder="UNESITE KOLICINU"></textarea><span>Niste uneli kilograme</span><br/>
+                   <input type="button" class="btn" value="NARUČI" id="naruci"/>
                 </form>
             </div>
          </div>
+         <div id="me">
+             <div id="podaci"></div>
+             <div id="slika"><img src="img/me.jpg" id="meSlika" alt="Autor"></div>
+         </div>
          <footer></footer>
-         <script type="text/javascript" src="js/main.js">
+         <script type="text/javascript" src="js/main.min.js">
         </script>
     </body>
 </html>
