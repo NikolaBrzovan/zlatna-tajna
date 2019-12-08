@@ -1,11 +1,17 @@
-
+window.onload=function(){
+    provera();
+    pozdravi();
+}
+function pozdravi(){
+    alert("Dobro nam došli");
+}
 window.onscroll=function(){
     this.scrollHeader();
 }
 
 // Dinamicka lista 
-let nizNav = ["POČETNA", "O NAMA", "KONTAKT"];
-let nizLink = ["index.html", "about.html", "#vrste"];
+let nizNav = ["POČETNA", "AUTOR", "KONTAKT"];
+let nizLink = ["index.html", "#me", "#vrste"];
 let meni = "";
 meni += "<ul id='meni'>";
 for (let i in nizNav) {
@@ -63,17 +69,15 @@ kontakt.classList.add("con");
 var header=document.getElementsByTagName("header")[0];
 function scrollHeader(){
     if(document.body.scrollTop>550 || document.documentElement.scrollTop>550){
-        header.style.height="110px";
         header.style.background="rgba(0,0,0, 0.6)";
     }else{
-        header.style.height="140px";
         header.style.background="none";
     }
 }
 
 //Social-network
 let sN = document.querySelectorAll(".panelManji")[2];
-sN.innerHTML="<h1><i class='fa fa-chevron-circle-down'></i> POTRAŽITE NAS <i class='fa fa-chevron-circle-down'></i></h1><br/><h2><a href='https://www.facebook.com/'><i class='fa fa-facebook-square'></i></a><br/><br/><a href='https://www.instagram.com/'><i class='fa fa-instagram'></i></a><br/><br/><a href='sitemap.xml'><i class='fa fa-sitemap'></i></a></h2>";
+sN.innerHTML=`<h1><i class='fa fa-chevron-circle-down'></i> POTRAŽITE NAS <i class='fa fa-chevron-circle-down'></i></h1><br/><h2><a href='https://www.facebook.com/'><i class='fa fa-facebook-square'></i></a><br/><br/><a href='https://www.instagram.com/'><i class='fa fa-instagram'></i></a><br/><br/><a href='sitemap.xml'><i class='fa fa-sitemap'></i></a></h2>`;
 sN.classList.add("social");
 
 //jQuery slider
@@ -84,7 +88,7 @@ $(document).ready(function(){
   });
 
   let pvise= document.getElementById("pvise");
-  pvise.innerHTML="<p>Med je gusta slatka sirupasta materija, proizvod medonosnih pčela.Med dobija svoju slatkoću od monosaharida fruktoze i glukoze.On ima atraktivna hemijska svojstva za pečenje i osobeni ukus zbog čega neki ljudi preferiraju med u onosu na šećer i druge zaslađivače...</p>";
+  pvise.innerHTML=`<p>Med je gusta slatka sirupasta materija, proizvod medonosnih pčela.Med dobija svoju slatkoću od monosaharida fruktoze i glukoze.On ima atraktivna hemijska svojstva za pečenje i osobeni ukus zbog čega neki ljudi preferiraju med u onosu na šećer i druge zaslađivače...</p>`;
 
   let prikaz= document.getElementById("prikazi");
   prikaz.innerHTML="VIŠE O MEDU";
@@ -93,8 +97,63 @@ $(document).ready(function(){
   copyR.textContent="Copyright © 2019 Nikola Brzovan";
 
 
-    
-   
+  document.getElementById("naruci").addEventListener("click",provera); 
+   function provera(){
+        let ime = document.getElementById("ime");
+        let prezime = document.getElementById("prezime");
+        let adresa = document.getElementById("adresa");
+        let odabir = document.getElementsByName("odabir");
+        let kolicina = document.getElementById("kolicina");
+
+        let regExpIme = /^[A-ZČĆŠĐŽ][a-zčćšđž]{2,15}$/;
+        let reqExpPrezime = /^[A-ZČĆŠĐŽ][a-zčćšđž]{2,15}$/;
+        let regExpAdresa = /^\w+\d+$/;
+        let regExpKolicina = /^([1-9]|([1-4][0-9])|(50))$/;
+
+        if(regExpIme.test(ime.value.trim())){
+            ime.nextElementSibling.classList.add("nevidljiv");
+            ime.nextSibling.classList.remove("vidljiv");
+        }else{
+            ime.nextElementSibling.classList.add("vidljiv");
+            ime.nextElementSibling.classList.remove("nevidljiv");
+        }
+        if(reqExpPrezime.test(prezime.value.trim())){
+            prezime.nextElementSibling.classList.add("nevidljiv");
+            prezime.nextSibling.classList.remove("vidljiv");
+        }else{
+            prezime.nextElementSibling.classList.add("vidljiv");
+            prezime.nextElementSibling.classList.remove("nevidljiv");
+        }
+        if(regExpAdresa.test(adresa.value.trim())){
+            adresa.nextElementSibling.classList.add("nevidljiv");
+            adresa.nextSibling.classList.remove("vidljiv");
+        }else{
+            adresa.nextElementSibling.classList.add("vidljiv");
+            adresa.nextElementSibling.classList.remove("nevidljiv");
+        }
+        if(regExpKolicina.test(kolicina.value.trim())){
+            kolicina.nextElementSibling.classList.add("nevidljiv");
+            kolicina.nextSibling.classList.remove("vidljiv");
+        }else{
+            kolicina.nextElementSibling.classList.add("vidljiv");
+            kolicina.nextElementSibling.classList.remove("nevidljiv");
+        }
+        for(let i in odabir){
+            if(odabir[i].checked){
+                odabir[1].nextElementSibling.classList.add("nevidljiv");
+                odabir[1].nextElementSibling.classList.remove("vidljiv");
+                break;
+            }else{
+                odabir[1].nextElementSibling.classList.add("vidljiv");
+                odabir[1].nextElementSibling.classList.remove("nevidljiv");
+            }
+            
+        }
+
+   }
+
+  let podaci=document.getElementById("podaci");
+  podaci.innerHTML="<p><br/><br/><br/>AUTOR<br/><br/>NIKOLA BRZOVAN<br/><br/>BROJ INDEXA:92/18<br/><br/><a href='BrziDokumentacija.pdf'>DOKUMENTACIJA</a></p>";
     
     
     
